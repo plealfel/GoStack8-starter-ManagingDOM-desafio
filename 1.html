@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Desafio 1 - Starter JavaScript - Manipulando a DOM - Go Stack 8</title>
+    </head>
+    <body>
+        <div id="app">
+            <button onclick="insereCaixa()">Adiciona Caixa de Cor</button>
+            
+        </div>
+
+        <script>
+            function insereCaixa(){
+                var boxColor = document.createElement('div');
+                boxColor.setAttribute('class','box');
+                boxColor.style.height = 100;
+                boxColor.style.width = 100;
+                boxColor.style.backgroundColor = '#f00';
+
+                document.body.appendChild(boxColor);
+            }           
+            
+        </script>
+    </body>
+</html>
