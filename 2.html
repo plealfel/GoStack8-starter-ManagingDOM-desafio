@@ -27,7 +27,9 @@
             boxColor.style.height = 100;
             boxColor.style.width = 100;
             boxColor.style.backgroundColor = '#f00';
-            boxColor.addEventListener('onmouseover', getRandomColor);
+            boxColor.onmouseover = function(){
+                boxColor.style.backgroundColor = getRandomColor();
+            };
 
             document.body.appendChild(boxColor);
         }
