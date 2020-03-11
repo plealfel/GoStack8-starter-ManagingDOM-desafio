@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio 4 - Starter JavaScript - Manipulando a DOM - Go Stack 8</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul></ul>
+        <input type="text" placeholder="Digite um nome">
+        <button>Adicionar</button>
+    </div>
+
+    <script>
+
+        var listElement = document.querySelector("#app ul");
+        var inputElement = document.querySelector("#app input");
+        var buttonElement = document.querySelector("#app button");
+
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+
+        function renderList() {
+            listElement.innerHTML = '';
+
+            for (nome of nomes) {
+                var nomeElement = document.createElement('li');
+                var nomeText = document.createTextNode(nome);
+
+                var linkElement = document.createElement('a');
+                linkElement.setAttribute('href','#');
+                var pos = nomes.indexOf(nome);
+
+                linkElement.setAttribute('onclick','deleteNome(' + pos + ')');
+                var linkText = document.createTextNode(' Excluir');
+
+                linkElement.appendChild(linkText);
+
+                nomeElement.appendChild(nomeText);
+                nomeElement.appendChild(linkElement);
+
+                listElement.appendChild(nomeElement);
+            }
+        }
+
+        renderList();
+
+        function addNome(){
+            var nomeText = inputElement.value;
+
+            nomes.push(nomeText);
+            inputElement.value = '';
+            renderList();
+        }
+
+        buttonElement.onclick = addNome;
+
+        function deleteNome(pos){
+            nomes.splice(pos,1);
+            renderList();
+        }
+
+
+
+    </script>
+</body>
+
+</html>

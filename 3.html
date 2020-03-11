@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio 3 - Starter JavaScript - Manipulando a DOM - Go Stack 8</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul></ul>
+
+    </div>
+
+    <script>
+
+        var listElement = document.querySelector("#app ul");
+        var nomes = ["Diego","Gabriel","Lucas"];
+
+        function renderList(){
+            for(nome of nomes){ 
+                var nomeElement = document.createElement('li');
+                var nomeText = document.createTextNode(nome);
+
+                nomeElement.appendChild(nomeText);
+                listElement.appendChild(nomeElement);
+
+            }
+        }
+
+        renderList();
+
+
+
+    </script>
+</body>
+
+</html>
